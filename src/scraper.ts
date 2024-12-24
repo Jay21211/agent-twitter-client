@@ -25,7 +25,8 @@ import {
   fetchProfileFollowers,
   getFollowing,
   getFollowers,
-  followUser
+  followUser,
+  unfollowUser
 } from './relationships';
 import { QueryProfilesResponse, QueryTweetsResponse } from './timeline-v1';
 import { getTrends } from './trends';
@@ -789,6 +790,11 @@ export class Scraper {
   public async followUser(userName: string): Promise<void> {
     // Call the followUser function from relationships.ts
     await followUser(userName, this.auth);
+  }
+  
+    public async unfollowUser(userName: string): Promise<void> {
+    // Call the followUser function from relationships.ts
+    await unfollowUser(userName, this.auth);
   }
 
   private getAuthOptions(): Partial<TwitterAuthOptions> {
